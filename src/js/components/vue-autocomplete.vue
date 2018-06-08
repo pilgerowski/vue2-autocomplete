@@ -1,20 +1,19 @@
-
 <template>
   <div :class="`${getClassName('wrapper')} autocomplete-wrapper`">
-    <input
-      ref="input"
-      type="text"
-      :id="id"
-      :class="`${getClassName('input')} autocomplete-input`"
-      :placeholder="placeholder"
-      :name="name"
-      v-model="type"
-      @input="handleInput"
-      @dblclick="handleDoubleClick"
-      @blur="handleBlur"
-      @keydown="handleKeyDown"
-      @focus="handleFocus"
-      autocomplete="off"
+    <input 
+      ref="input" 
+      type="text" 
+      :id="id" 
+      :class="`${getClassName('input')} autocomplete-input`" 
+      :placeholder="placeholder" 
+      :name="name" 
+      v-model="type" 
+      @input="handleInput" 
+      @dblclick="handleDoubleClick" 
+      @blur="handleBlur" 
+      @keydown="handleKeyDown" 
+      @focus="handleFocus" 
+      autocomplete="off" 
     />
 
     <div
@@ -22,13 +21,15 @@
       v-show="showList && json.length"
     >
       <ul>
-        <li
-          v-for="(data, i) in json"
-          :class="activeClass(i)"
+        <li 
+          v-for="(data, i) in json" 
+          :class="activeClass(i)" 
+          :key='i'
         >
-          <a
-            href="#"
-            @click.prevent="selectList(data)"
+          <a 
+            href="#" 
+            @click.prevent 
+            @mousedown="selectList(data)" 
             @mousemove="mousemove(i)"
           >
             <div v-if="onShouldRenderChild" v-html="onShouldRenderChild(data)"></div>
