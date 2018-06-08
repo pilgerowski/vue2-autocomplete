@@ -28,7 +28,7 @@
         >
           <a
             href="#"
-            @click.prevent="selectList(data)"
+            @mousedown.prevent="selectList(data)"
             @mousemove="mousemove(i)"
           >
             <div v-if="onShouldRenderChild" v-html="onShouldRenderChild(data)"></div>
